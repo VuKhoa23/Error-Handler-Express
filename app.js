@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/api/students", studentsApiRouter);
+app.use("/rest_controller/students", studentsApiRouter);
 app.use("/error", intentionalErrorRouter);
 
 // because 404 is thrown by express
