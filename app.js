@@ -30,15 +30,19 @@ app.use("/error", intentionalErrorRouter);
 // we will handle our defined error first
 app.use(function (req, res, next) {
   if (req.statusCode === 400) {
+    res.status(400);
     res.send("400 BAD REQUEST !");
     return;
   } else if (req.statusCode === 403) {
+    res.status(403);
     res.send("403 NOT AUTHORIZED !");
     return;
   } else if (req.statusCode === 500) {
+    res.status(500);
     res.send("500 INTERNAL SERVER ERROR !");
     return;
   }
+  res.status(404);
   res.send("404 NOT FOUND !");
 });
 
