@@ -6,7 +6,7 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-var studentsApiRouter = require("./controller/student");
+var studentsApiRouter = require("./rest_controller/student");
 var intentionalErrorRouter = require("./routes/throwError");
 
 var app = express();
@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/rest_controller/students", studentsApiRouter);
+app.use("/api/students", studentsApiRouter);
 app.use("/error", intentionalErrorRouter);
 
 // because 404 is thrown by express
