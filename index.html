@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch example</title>
+</head>
+
+<body>
+  <h1>Data fetching example</h1>
+  <script>
+    async function getDatas() {
+      response = await fetch("http://127.0.0.1:3000/api/students")
+      students = await response.json();
+      console.log(students)
+    }
+    getDatas()
+  </script>
+</body>
+
+</html>

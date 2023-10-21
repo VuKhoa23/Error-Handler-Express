@@ -3,6 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var cors = require("cors");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -10,6 +11,16 @@ var studentsApiRouter = require("./rest_controller/student");
 var intentionalErrorRouter = require("./routes/throwError");
 
 var app = express();
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "./index.html"));
+});
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
